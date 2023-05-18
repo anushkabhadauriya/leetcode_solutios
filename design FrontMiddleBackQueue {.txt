@@ -1,0 +1,51 @@
+class FrontMiddleBackQueue {
+  ArrayList<Integer> ans = new ArrayList<>();
+
+    public FrontMiddleBackQueue() {
+        
+    }
+    
+    public void pushFront(int val) {
+        ans.add(0,val);
+        // System.out.println(ans);
+    }
+    
+    public void pushMiddle(int val) {
+        
+        ans.add(ans.size()/2 , val);
+        // System.out.println(ans);
+    }
+    
+    public void pushBack(int val) {
+        ans.add(val);
+        // System.out.println(ans);
+    }
+    
+    public int popFront() {
+        if(ans.size() > 0)
+        return ans.remove(0);
+        // System.out.println(ans);
+        return -1;
+    }
+    
+    public int popMiddle() {
+        // System.out.println(ans);
+        if(ans.size() > 0){
+            if(ans.size() % 2 != 0){
+                if(ans.size()/2 < ans.size())
+                return ans.remove(ans.size() / 2);
+            }
+            else if(ans.size() % 2 == 0){
+                return ans.remove((ans.size() - 1) / 2);
+            }
+        }
+        return -1;
+    }
+    
+    public int popBack() {
+        // System.out.println(ans);
+        if(ans.size() > 0)
+        return ans.remove(ans.size()-1);
+        return -1;
+    }
+}
